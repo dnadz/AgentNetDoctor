@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><OutputType>Exe</OutputType><AssemblyName>AgentNetDoctor.MacApp</AssemblyName></PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" /><PackageReference Include="Avalonia.Desktop" /><PackageReference Include="Avalonia.Themes.Fluent" />
+    <ProjectReference Include="../AgentNetDoctor.Mac/AgentNetDoctor.Mac.csproj" />
+  </ItemGroup>
+</Project>

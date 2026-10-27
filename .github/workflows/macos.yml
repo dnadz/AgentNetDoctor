@@ -1,0 +1,73 @@
+name: Mac checks and preview
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mac:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            rid: osx-arm64
+          - runner: macos-15-intel
+            rid: osx-x64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 25
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9
+        with:
+          global-json-file: global.json
+      - run: dotnet test tests/Mac -c Release
+      - run: dotnet test tests/Unit -c Release
+      - name: Native read-only Mac collection
+        run: dotnet run --project src/AgentNetDoctor.MacApp -c Release --no-build -- --self-check
+      - run: python3 scripts/Build-Mac.py ${{ matrix.rid }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: mac-${{ matrix.rid }}
+          path: |
+            artifacts/*.zip
+            artifacts/*.sha256
+          if-no-files-found: error
+          retention-days: 3
+  release:
+    needs: mac
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: mac-*
+          merge-multiple: true
+          path: downloads
+      - name: Publish both tested architectures
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view v0.1.0-macos-preview.1 --json tagName >/dev/null 2>&1; then
+            echo 'Existing immutable Mac preview retained.'
+            exit 0
+          fi
+          test "$(find downloads -name '*.zip' | wc -l)" -eq 2
+          test "$(find downloads -name '*.sha256' | wc -l)" -eq 2
+          (cd downloads && sha256sum -c *.sha256)
+          gh release create v0.1.0-macos-preview.1 downloads/* --target "$GITHUB_SHA" --prerelease --title 'Agent 网络医生 · Mac 0.1.0-preview.1' --notes-file docs/release-macos-preview.1.md

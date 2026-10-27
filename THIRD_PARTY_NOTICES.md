@@ -13,3 +13,6 @@ NuGet运行依赖，用于只读解析Codex候选TOML；没有复制或修改其
 ## 免安装包运行时
 
 Windows x64自包含包包含Microsoft.NETCore.App和Microsoft.WindowsDesktop.App 10.0.11。打包脚本从官方NuGet运行时包复制.NET许可、第三方通知及WindowsDesktop许可到third-party目录；源码仓库不包含运行时二进制。Tomlyn许可仍单独随包保留。
+# Mac界面依赖
+
+Mac界面新增Avalonia、Avalonia.Desktop、Avalonia.Themes.Fluent 12.1.4（MIT），测试使用Avalonia.Headless 12.1.4。官方源码与许可：https://github.com/AvaloniaUI/Avalonia/blob/main/licence.md 。打包脚本收集固定解析版本的NuGet清单、许可表达式文本和许可/通知文件，另显式复制.NET运行时许可与第三方通知，放入.app/Contents/Resources/third-party；测试依赖不随产品分发。

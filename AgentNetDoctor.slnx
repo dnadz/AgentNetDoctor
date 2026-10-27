@@ -1,5 +1,11 @@
 <Solution><Project Path="src/AgentNetDoctor.Core/AgentNetDoctor.Core.csproj" /><Project Path="src/AgentNetDoctor.Windows/AgentNetDoctor.Windows.csproj" />
-  <Folder Name="/src/" />
+  <Folder Name="/src/">
+    <Project Path="src/AgentNetDoctor.Mac/AgentNetDoctor.Mac.csproj" />
+    <Project Path="src/AgentNetDoctor.MacApp/AgentNetDoctor.MacApp.csproj" />
+  </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/RepairCrashHost/RepairCrashHost.csproj" />
+  </Folder>
+  <Folder Name="/tests/Mac/">
+    <Project Path="tests/Mac/AgentNetDoctor.MacTests.csproj" />
   </Folder><Project Path="src/AgentNetDoctor.Adapters/AgentNetDoctor.Adapters.csproj" /><Project Path="src/AgentNetDoctor.App/AgentNetDoctor.App.csproj" /><Project Path="tests/Unit/AgentNetDoctor.UnitTests.csproj" /><Project Path="tests/Integration/AgentNetDoctor.IntegrationTests.csproj" /></Solution>
