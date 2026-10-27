@@ -1,0 +1,17 @@
+bin/
+obj/
+artifacts/
+.local/
+.packages/
+.superpowers/
+*.user
+*.suo
+.env
+.env.*
+*.pfx
+*.key
+snapshots/
+backups/
+private/
+*.log
+.vs/

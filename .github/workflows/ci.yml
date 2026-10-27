@@ -1,0 +1,67 @@
+name: Windows checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # reviewed v4 SHA
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # reviewed v4 SHA
+        with:
+          global-json-file: global.json
+      - name: Source boundary fixtures
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File tests/SourceAudit/Verify-Source.Tests.ps1
+      - name: Actual source boundary
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/Verify-Source.ps1 -RepositoryRoot .
+      - run: dotnet restore
+      - run: dotnet test tests/Unit -c Release --no-restore
+      - run: dotnet test tests/Integration -c Release --no-restore
+      - run: dotnet build -c Release --no-restore
+      - run: dotnet format AgentNetDoctor.slnx --verify-no-changes --no-restore
+  preview-release:
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: windows-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Check whether this preview is already published
+        id: existing
+        shell: pwsh
+        run: |
+          gh release view v0.1.0-preview.4 --json tagName 2>$null
+          if ($LASTEXITCODE -eq 0) { 'published=true' >> $env:GITHUB_OUTPUT }
+          else { 'published=false' >> $env:GITHUB_OUTPUT }
+          exit 0
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9
+        if: steps.existing.outputs.published != 'true'
+        with:
+          global-json-file: global.json
+      - name: Build portable package
+        if: steps.existing.outputs.published != 'true'
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/Build-Portable.ps1
+      - name: Publish preview with portable package and checksum
+        if: steps.existing.outputs.published != 'true'
+        shell: pwsh
+        run: |
+          gh release create v0.1.0-preview.4 artifacts/AgentNetDoctor-0.1.0-preview.4-win-x64.zip artifacts/AgentNetDoctor-0.1.0-preview.4-win-x64.zip.sha256 --target $env:GITHUB_SHA --prerelease --title 'Agent 网络医生 0.1.0-preview.4' --notes-file docs/release-preview.4.md
+          if ($LASTEXITCODE -ne 0) { throw 'Preview release publication failed' }

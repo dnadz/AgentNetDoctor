@@ -1,0 +1,31 @@
+<Window x:Class="AgentNetDoctor.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="Agent 网络医生 · 简单模式" Width="960" Height="740" MinWidth="820" MinHeight="640" WindowStartupLocation="CenterScreen" Background="#EDF3F6" FontFamily="Microsoft YaHei UI" FontSize="15" Closing="Window_Closing">
+ <Window.Resources>
+  <Style TargetType="TextBlock"><Setter Property="TextWrapping" Value="Wrap"/><Setter Property="Foreground" Value="#243E50"/></Style>
+  <Style TargetType="Button"><Setter Property="Padding" Value="20,10"/><Setter Property="Margin" Value="0,0,12,0"/><Setter Property="Cursor" Value="Hand"/></Style>
+ </Window.Resources>
+ <Grid Margin="30,24"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+  <StackPanel Margin="0,0,0,26"><TextBlock Text="Agent 网络医生" FontSize="27" FontWeight="SemiBold" Foreground="#123B4A"/><TextBlock Text="软件连不上？先做一次简单检查。" FontSize="18" Margin="0,8,0,0" Foreground="#526B79"/></StackPanel>
+  <Border Grid.Row="1" Background="White" BorderBrush="#CDDDE3" BorderThickness="1" CornerRadius="10" Padding="24" Margin="0,0,0,18">
+   <StackPanel>
+    <TextBlock Text="1. 选择遇到问题的软件" FontSize="19" FontWeight="SemiBold" Margin="0,0,0,12"/>
+    <ComboBox x:Name="HomeToolBox" DisplayMemberPath="Name" SelectedValuePath="Id" Padding="10" MaxDropDownHeight="380"/>
+    <TextBlock Text="2. 开始检查，按结果提示操作" FontSize="19" FontWeight="SemiBold" Margin="0,22,0,12"/>
+    <Button x:Name="BasicStartButton" Content="开始检查" Click="BasicStart_Click" Background="#136C79" Foreground="White" FontSize="17" HorizontalAlignment="Left" MinWidth="150"/>
+    <TextBlock Text="不用填写网址或端口。先检查电脑端设置，不会自动修改网络，也不会调用模型。" Margin="0,14,0,0" Foreground="#526B79"/>
+   </StackPanel>
+  </Border>
+  <TextBlock Grid.Row="2" Text="检查完成后会告诉你：发现了什么、接下来怎么做。需要进一步测试时，再展开高级选项。" Margin="2,0,0,18"/>
+  <Expander Grid.Row="3" x:Name="AdvancedTools" Header="高级工具（一般不需要打开）" IsExpanded="False" VerticalAlignment="Stretch">
+   <ScrollViewer VerticalScrollBarVisibility="Auto"><Grid Margin="0,14,0,0"><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="180"/><RowDefinition Height="180"/></Grid.RowDefinitions>
+    <TextBlock Text="这里提供电脑整体概况和完整技术报告。先点“检查电脑概况”，检查结束后可保存报告。" Margin="0,0,0,10" FontSize="13"/>
+    <WrapPanel Grid.Row="1" Margin="0,0,0,12"><Button x:Name="CollectButton" Content="检查电脑概况" Click="Collect_Click"/><Button x:Name="CancelButton" Content="取消" Click="Cancel_Click" IsEnabled="False"/><Button x:Name="ExportButton" Content="保存技术报告" Click="Export_Click" IsEnabled="False"/><Button x:Name="ToolNetworkButton" Content="检查列表中选的软件" Click="ToolNetwork_Click"/></WrapPanel>
+    <DataGrid Grid.Row="2" x:Name="CatalogGrid" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HeadersVisibility="Column" GridLinesVisibility="Horizontal" MinRowHeight="36" FontSize="13" Margin="0,0,0,10">
+     <DataGrid.Columns><DataGridTextColumn Header="软件" Binding="{Binding Name}" Width="180"/><DataGridTextColumn Header="检查信息" Binding="{Binding Detection}" Width="*"/><DataGridTextColumn Header="版本信息" Binding="{Binding Versions}" Width="140"/></DataGrid.Columns>
+    </DataGrid>
+    <TextBox Grid.Row="3" x:Name="ReportBox" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Padding="12" FontSize="12" Text="尚未生成电脑整体报告。普通检查请使用上方“开始检查”。"/>
+   </Grid></ScrollViewer>
+  </Expander>
+  <StackPanel Grid.Row="4" Margin="0,18,0,0"><TextBlock x:Name="StatusText" Text="准备好了，请选择软件后开始。" Foreground="#42616F"/><TextBlock Text="试用版：提供检查与建议，暂不自动改写网络设置。关闭软件后不会留在后台。" FontSize="12" Foreground="#667C86" Margin="0,8,0,0"/></StackPanel>
+ </Grid>
+</Window>

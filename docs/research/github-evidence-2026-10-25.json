@@ -1,0 +1,344 @@
+{
+  "purpose": "Read-only GitHub research for a proposed Windows network/runtime diagnostic and limited-repair application",
+  "verification": "Metadata and selected documentation/source inspection only. No software executed, built, installed, or security-audited. Counts are a snapshot; samples are not exhaustive.",
+  "repositories": [
+    {
+      "repository": "EXboys/agent-doctor",
+      "url": "https://github.com/EXboys/agent-doctor",
+      "observed_date": "2026-10-25",
+      "stars": 4,
+      "forks": 4,
+      "pushed_at": "2026-10-25T07:42:57Z",
+      "language": "Rust",
+      "license_api": "MIT",
+      "default_branch": "main",
+      "head_commit": "9389b0b7e7b341ba4b9f809afec1a928dbb2c487",
+      "archived": false,
+      "open_issues_including_pull_requests": 1,
+      "recent_commits": [
+        {
+          "sha": "9389b0b7e7b341ba4b9f809afec1a928dbb2c487",
+          "date": "2026-10-25T07:35:29Z",
+          "message": "chore: 0.1.93"
+        },
+        {
+          "sha": "9a4ac41bed0cddd2d7bb8f046b65450f4e4d97f6",
+          "date": "2026-10-25T07:35:04Z",
+          "message": "feat(desktop): offer the latest vendor model ids"
+        },
+        {
+          "sha": "e91fee3ab8f99da80c962f6a212cc8c69a8032e6",
+          "date": "2026-10-25T07:18:18Z",
+          "message": "fix(desktop): give the Windows resource rows more room"
+        }
+      ],
+      "recent_issues_sample": [
+        {
+          "title": "chore(deps-dev): bump typescript from 5.6.3 to 7.0.2 in /desktop",
+          "date": "2026-10-22T11:23:36Z",
+          "state": "closed"
+        },
+        {
+          "title": "chore(deps): bump sha2 from 0.10.9 to 0.11.1",
+          "date": "2026-10-22T11:23:33Z",
+          "state": "closed"
+        },
+        {
+          "title": "chore(deps): bump windows from 0.58.0 to 0.62.2",
+          "date": "2026-10-22T11:23:27Z",
+          "state": "closed"
+        }
+      ],
+      "recent_pull_requests_sample": [
+        {
+          "title": "chore(deps-dev): bump typescript from 5.6.3 to 7.0.2 in /desktop",
+          "date": "2026-10-22T11:23:36Z",
+          "state": "closed"
+        },
+        {
+          "title": "chore(deps): bump sha2 from 0.10.9 to 0.11.1",
+          "date": "2026-10-22T11:23:33Z",
+          "state": "closed"
+        },
+        {
+          "title": "chore(deps): bump windows from 0.58.0 to 0.62.2",
+          "date": "2026-10-22T11:23:27Z",
+          "state": "closed"
+        }
+      ]
+    },
+    {
+      "repository": "Mrxing233/windows-proxy-route-manager",
+      "url": "https://github.com/Mrxing233/windows-proxy-route-manager",
+      "observed_date": "2026-10-25",
+      "stars": 47,
+      "forks": 1,
+      "pushed_at": "2026-07-29T08:14:19Z",
+      "language": "Python",
+      "license_api": "MIT",
+      "default_branch": "main",
+      "head_commit": "58a4698789433ba36e54aa712ad66090df003230",
+      "archived": false,
+      "open_issues_including_pull_requests": 0,
+      "recent_commits": [
+        {
+          "sha": "58a4698789433ba36e54aa712ad66090df003230",
+          "date": "2026-07-29T07:38:53Z",
+          "message": "Update README"
+        },
+        {
+          "sha": "0e1d3f4124d950dc0b0e8171bdaee2546903c2d8",
+          "date": "2026-07-29T07:35:40Z",
+          "message": "docs: 完善主分支说明"
+        },
+        {
+          "sha": "a399b12b2fbdf615ee659536b862e3c3cda1b0ec",
+          "date": "2026-07-27T09:37:04Z",
+          "message": "docs: 优化README首页中英文说明"
+        }
+      ],
+      "recent_issues_sample": [],
+      "recent_pull_requests_sample": []
+    },
+    {
+      "repository": "0x0bug/windows-diagnostics-toolkit",
+      "url": "https://github.com/0x0bug/windows-diagnostics-toolkit",
+      "observed_date": "2026-10-25",
+      "stars": 6,
+      "forks": 1,
+      "pushed_at": "2026-09-18T06:57:25Z",
+      "language": "PowerShell",
+      "license_api": "MIT",
+      "default_branch": "main",
+      "head_commit": "1c0d38962c21933c61e97bbea9fcb37e446f0275",
+      "archived": false,
+      "open_issues_including_pull_requests": 0,
+      "recent_commits": [
+        {
+          "sha": "1c0d38962c21933c61e97bbea9fcb37e446f0275",
+          "date": "2026-09-18T06:57:22Z",
+          "message": "Add Windows event identifiers, designations, and error codes (#45)"
+        },
+        {
+          "sha": "5c6e158e01dbc2646ce76dc083901bf26272b245",
+          "date": "2026-09-18T05:55:04Z",
+          "message": "Fix raw CLIXML progress output in diagnostic reports (#44)"
+        },
+        {
+          "sha": "7363d1110ade77e43bc3f6f45ce1ec38790d975f",
+          "date": "2026-08-06T01:56:48Z",
+          "message": "docs: sharpen README positioning and structure (#43)"
+        }
+      ],
+      "recent_issues_sample": [
+        {
+          "title": "Add Windows event identifiers, designations, and error codes",
+          "date": "2026-09-18T06:57:26Z",
+          "state": "closed"
+        },
+        {
+          "title": "Fix raw CLIXML progress output in diagnostic reports",
+          "date": "2026-09-18T05:55:08Z",
+          "state": "closed"
+        },
+        {
+          "title": "Establish canonical bootstrap ownership",
+          "date": "2026-09-12T01:34:54Z",
+          "state": "closed"
+        }
+      ],
+      "recent_pull_requests_sample": [
+        {
+          "title": "Add Windows event identifiers, designations, and error codes",
+          "date": "2026-09-18T06:57:26Z",
+          "state": "closed"
+        },
+        {
+          "title": "Fix raw CLIXML progress output in diagnostic reports",
+          "date": "2026-09-18T05:55:08Z",
+          "state": "closed"
+        },
+        {
+          "title": "Establish canonical bootstrap ownership",
+          "date": "2026-09-12T01:34:54Z",
+          "state": "closed"
+        }
+      ]
+    },
+    {
+      "repository": "AmirrezaFarnamTaheri/LucidNet",
+      "url": "https://github.com/AmirrezaFarnamTaheri/LucidNet",
+      "observed_date": "2026-10-25",
+      "stars": 0,
+      "forks": 0,
+      "pushed_at": "2026-05-01T15:17:01Z",
+      "language": "Python",
+      "license_api": "AGPL-3.0",
+      "default_branch": "main",
+      "head_commit": "31978c90662afd952c49c4d1edfd29259dcc16c1",
+      "archived": false,
+      "open_issues_including_pull_requests": 0,
+      "recent_commits": [
+        {
+          "sha": "31978c90662afd952c49c4d1edfd29259dcc16c1",
+          "date": "2026-05-01T15:12:36Z",
+          "message": "Screenshots added"
+        },
+        {
+          "sha": "70d74f7a1aeb08a90369e6f9d02bd646abd50d2a",
+          "date": "2026-05-01T14:45:40Z",
+          "message": "Normalize roadmap formatting and update docs/tests"
+        },
+        {
+          "sha": "131ba3584e12b6a4c0659b42f457d591acd3c6ce",
+          "date": "2026-05-01T13:13:08Z",
+          "message": "Switch to Omni-Hex branding and clean targets"
+        }
+      ],
+      "recent_issues_sample": [
+        {
+          "title": "Fix Cross-Platform Compatibility Bugs",
+          "date": "2026-04-30T09:46:18Z",
+          "state": "closed"
+        }
+      ],
+      "recent_pull_requests_sample": [
+        {
+          "title": "Fix Cross-Platform Compatibility Bugs",
+          "date": "2026-04-30T09:46:18Z",
+          "state": "closed"
+        }
+      ]
+    },
+    {
+      "repository": "francomano/ProxyDoctor",
+      "url": "https://github.com/francomano/ProxyDoctor",
+      "observed_date": "2026-10-25",
+      "stars": 1,
+      "forks": 7,
+      "pushed_at": "2026-10-17T21:07:18Z",
+      "language": "Go",
+      "license_api": "NOASSERTION",
+      "default_branch": "master",
+      "head_commit": "72e142baf43450141a2ee854e63e728302ceae72",
+      "archived": false,
+      "open_issues_including_pull_requests": 24,
+      "recent_commits": [
+        {
+          "sha": "72e142baf43450141a2ee854e63e728302ceae72",
+          "date": "2026-10-17T21:07:15Z",
+          "message": "Move marketplace skill to root"
+        },
+        {
+          "sha": "73758fe66c90b459e79dc8c758670786571b3769",
+          "date": "2026-10-17T21:06:28Z",
+          "message": "Add ProxyDoctor Agensi skill"
+        },
+        {
+          "sha": "393fb27c903c8d6242ceebd2cc89c46f773b2b7c",
+          "date": "2026-09-05T15:03:49Z",
+          "message": "feat(checks): add proxy protocol fingerprint check (#52) (#60)"
+        }
+      ],
+      "recent_issues_sample": [
+        {
+          "title": "Add IP reputation & blacklist check",
+          "date": "2026-09-10T18:23:19Z",
+          "state": "open"
+        },
+        {
+          "title": "Raise test coverage and add golden-file output tests",
+          "date": "2026-09-05T15:18:45Z",
+          "state": "open"
+        },
+        {
+          "title": "Add release signing and SBOM generation",
+          "date": "2026-09-05T15:18:37Z",
+          "state": "open"
+        }
+      ],
+      "recent_pull_requests_sample": [
+        {
+          "title": "feat(checks): add proxy protocol fingerprint check (#52)",
+          "date": "2026-09-05T15:03:49Z",
+          "state": "closed"
+        },
+        {
+          "title": "feat(diagnose): add --no-color flag for CI/scripting",
+          "date": "2026-09-05T15:03:34Z",
+          "state": "closed"
+        },
+        {
+          "title": "feat(cli): add shell flag-value completion for --checks/--export/--proxy-type",
+          "date": "2026-09-02T19:58:36Z",
+          "state": "closed"
+        }
+      ]
+    },
+    {
+      "repository": "wiresock/proxifyre",
+      "url": "https://github.com/wiresock/proxifyre",
+      "observed_date": "2026-10-25",
+      "stars": 1594,
+      "forks": 128,
+      "pushed_at": "2026-10-14T10:25:21Z",
+      "language": "C++",
+      "license_api": "AGPL-3.0",
+      "default_branch": "main",
+      "head_commit": "5e3bc845d73a47a0931b1233c745580cb916f4ba",
+      "archived": false,
+      "open_issues_including_pull_requests": 2,
+      "recent_commits": [
+        {
+          "sha": "5e3bc845d73a47a0931b1233c745580cb916f4ba",
+          "date": "2026-10-14T10:25:10Z",
+          "message": "chore: prepare v2.6.4 release"
+        },
+        {
+          "sha": "33959eb52be03ed3d81116ef46b5aaeef2d2ae94",
+          "date": "2026-10-14T10:23:56Z",
+          "message": "Merge pull request #185 from wiresock/claude/proxifyre-issue-184-jer5gk"
+        },
+        {
+          "sha": "1860599b423a2bdb2199cf993b3950cdaaffd760",
+          "date": "2026-10-14T10:03:50Z",
+          "message": "docs: correct examples of DACL entries the policy cannot evaluate"
+        }
+      ],
+      "recent_issues_sample": [
+        {
+          "title": "WorkBuddyAI Does Not Use the Configured Proxy in ProxiFyre 2.6.3",
+          "date": "2026-10-24T06:52:01Z",
+          "state": "open"
+        },
+        {
+          "title": "Несовместимость с Wiresock Secure Connect?",
+          "date": "2026-10-18T21:16:00Z",
+          "state": "closed"
+        },
+        {
+          "title": "Can't use program anymore due to \"security\" changes",
+          "date": "2026-10-14T10:23:58Z",
+          "state": "closed"
+        }
+      ],
+      "recent_pull_requests_sample": [
+        {
+          "title": "fix: accept inherited CREATOR OWNER on protected service directories",
+          "date": "2026-10-14T10:23:57Z",
+          "state": "closed"
+        },
+        {
+          "title": "Bound log retention and document protected ZIP staging",
+          "date": "2026-10-13T13:09:58Z",
+          "state": "closed"
+        },
+        {
+          "title": "perf: memoize owner enrichment per capture and retire ownership tables outside the reader lock",
+          "date": "2026-10-06T17:14:16Z",
+          "state": "closed"
+        }
+      ]
+    }
+  ]
+}

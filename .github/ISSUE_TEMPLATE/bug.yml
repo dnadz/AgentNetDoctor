@@ -1,0 +1,14 @@
+name: 故障报告
+description: 提交已脱敏的诊断问题
+title: '[问题] '
+body:
+  - type: textarea
+    id: symptoms
+    attributes:
+      label: 现象与复现步骤（不要附Key、订阅或原始日志）
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Windows与客户端版本、代理模式、已测试场景
