@@ -1,8 +1,8 @@
 # AgentNetDoctor
 
-开发中的中文Windows Agent网络诊断工具。目标是启动Agent前检查直连/现有代理设置，配置后退出；不提供VPN、代理节点或后台守护。
+开发中的中文Windows/macOS Agent网络诊断工具。目标是启动Agent前检查直连/现有代理设置，配置后退出；不提供VPN、代理节点或后台守护。
 
-**Mac版已新增源码与双架构检查/打包流程。** 复用C#核心，新增独立中文简单界面和Mac实际代理/进程/TCP采集；不改写系统网络。Mac预览是否可下载以[Releases](https://github.com/dnadz/AgentNetDoctor/releases)实际附件为准，Apple Silicon选osx-arm64、Intel选osx-x64。[使用与签名限制](docs/macos-guide.txt) · [实际验收与差距](docs/macos-audit.md)。
+**Mac中文预览版已发布。** [下载Apple Silicon或Intel版本](https://github.com/dnadz/AgentNetDoctor/releases/tag/v0.1.0-macos-preview.1)：M系列芯片选osx-arm64、Intel选osx-x64。复用C#核心，新增独立中文简单界面和Mac实际代理/进程/TCP采集；不改写系统网络。两种架构的CI检查与打包均通过，公开ZIP已实际下载并逐文件校验。[使用与签名限制](docs/macos-guide.txt) · [实际验收与差距](docs/macos-audit.md)。
 
 [下载预览版](https://github.com/dnadz/AgentNetDoctor/releases)（首次GitHub检查及打包通过后提供Windows x64 ZIP）。完整解压后双击AgentNetDoctor.App.exe。[使用与限制](docs/release-preview.4.md)。
 

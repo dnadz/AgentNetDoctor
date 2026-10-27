@@ -38,3 +38,12 @@ Mac CI分别运行测试、实际本机只读采集与打包；两个架构全�
 没有Apple Developer ID签名/公证，只有临时ad-hoc签名，首次打开可能被系统阻止。不提供关闭Gatekeeper或绕过系统安全保护的步骤。Mac14+是目标，不宣称全部版本/机型兼容。
 
 P0：真实Mac桌面交互、目标软件身份/私有配置覆盖链及业务、现有VPN/TUN切换时序仍需真实设备验收；自动修复继续锁定。P1：开发者签名、公证及普通用户实测；权限不足/共享宿主候选补充。P2：性能基准、更多OS覆盖。采集有时间/输出限额，未做负载基准；不能由TCP/HTTP回应推断业务健康。
+
+## 远端实际完成记录（2026-10-27）
+
+- 测试代码提交0986aad1c5a2914e2e05c7c5134f43cc33ac0e7b，文件树5f3ff95a4971b512c33d66951eb331d7cb4fe0b8与本地e322bbe完全一致，共163个受版本控制文件。
+- Mac运行40534027554成功：macos-15 ARM64、macos-15-intel两个矩阵的Mac测试、核心测试、原生只读采集、架构/临时签名/打包检查及发布均成功。ARM64日志确认19项Mac、69项核心测试，原生采集proxy=Success、tools=Partial、tcp=Partial；Partial为可见候选/非完整采集边界，不包装为业务健康。
+- Windows运行40534027851成功，原单元/集成、源码边界、Release构建与格式门禁通过，旧Windows预览不覆盖。
+- 发布https://github.com/dnadz/AgentNetDoctor/releases/tag/v0.1.0-macos-preview.1 ，状态公开、非草稿、预览版；两个ZIP及两个SHA256附件均已上传。
+- 两个公开ZIP已下载到忽略的artifacts目录：各自ZIP SHA256及包内299个文件逐一匹配，.NET运行时两份许可存在。ARM64 ZIP SHA256：5317a836bacc2474609026db414ebe600f9cba65b88c87c625a0f2bea5ba9197；Intel ZIP SHA256：052307c539746d37f53599fab1dfa5866bde74e1d68e63e9c84ae68ea4a56c2f。
+- 未在本Windows机器执行Mac二进制；真实Mac桌面交互、目标Agent/VPN业务和Apple公证仍未验收。CI日志存在既有Action的Node20退役/强制Node24警告，任务本身成功，后续应独立维护Action版本，不混同为C#构建失败。
